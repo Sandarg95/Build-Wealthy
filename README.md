@@ -4,6 +4,11 @@ Academic project
 
 This project is a simple multi-window application built using Python's Tkinter library. It provides a sequence of windows that navigate from a welcome screen to an authentication screen and finally to a menu screen with various options.
 
+GitHub Link : https://github.com/Sandarg95/Build-Wealthy.git	
+Username: dodo
+Password: 1234
+
+
 # Files
 
 - `main.py`: Contains the main application code.
@@ -136,3 +141,11 @@ if __name__ == "__main__":
     window_one = WindowOne()
     window_one.mainloop()
 ```
+# Remaining Tasks
+•	Implement the "Add Expenses" screen.
+•	Implement the "View Expenses" screen.
+•	Implement the "Reports" screen.
+•	Implement the "Settings" screen.
+•	Implement the backend calculations.
+•	Decide on and implement the database solution, which could involve using files to store data or another approach (I am not sure yet).
+
