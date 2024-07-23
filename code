@@ -1,52 +1,60 @@
-
 import tkinter as tk
 from tkinter import font
-import random
+from datetime import datetime
+from tkinter import messagebox
 
+# Main window that displays the welcome message
 class WindowOne(tk.Tk):
     def __init__(self):
         super().__init__()
         
         custom_font = font.Font(family="Helvetica", size=70, weight='bold') # for the title
-        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold') # to didplsy the number
+        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold') # to display the number
+        
         self.title('WELCOME')
         self.geometry('640x480')
         self.configure(bg='black')
-        self.lbl_msg = tk.Label(self, text="WELCOME ", font=custom_font, anchor='center',foreground='gold', bg='black')
+        
+        self.lbl_msg = tk.Label(self, text="WELCOME ", font=custom_font, anchor='center', foreground='gold', bg='black')
         self.lbl_msg.place(x=60, y=150)
-        self.lbl_msg = tk.Label(self, text="BUILD WEALTHY", font=slogan_font, anchor='center',foreground='white', bg='black')
+        
+        self.lbl_msg = tk.Label(self, text="BUILD WEALTHY", font=slogan_font, anchor='center', foreground='white', bg='black')
         self.lbl_msg.place(x=190, y=250)
+        
         self.btn_new_game = tk.Button(self, text='Continue', command=lambda: self.process_btn('Continue'))
         self.btn_new_game.place(x=550, y=400)
         self.update()
 
-
-            
     def process_btn(self, btn_pressed: str):
         if btn_pressed == 'Continue':
             self.destroy()
             window_two = WindowTwo()
             window_two.mainloop()
 
+# Authentication window
 class WindowTwo(tk.Tk):
     def __init__(self):
         super().__init__()
         
         id_font = font.Font(family="Helvetica", size=10, weight='bold') # for the title
-        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold') # to didplsy the number
+        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold') # to display the number
+        
         self.title('Authentication')
         self.geometry('640x480')
         self.configure(bg='black')
-        self.lbl_msg = tk.Label(self, text="Username ", font=id_font, anchor='center',foreground='red', bg='black')
+        
+        self.lbl_msg = tk.Label(self, text="Username ", font=id_font, anchor='center', foreground='red', bg='black')
         self.lbl_msg.place(x=180, y=167)
-
-        self.lbl_msg = tk.Label(self, text="Password ", font=id_font, anchor='center',foreground='red', bg='black')
+        
+        self.lbl_msg = tk.Label(self, text="Password ", font=id_font, anchor='center', foreground='red', bg='black')
         self.lbl_msg.place(x=180, y=217)
-
-        self.entry_value_username = tk.Entry(self) # for the username entry
+        
+        self.entry_value_username = tk.Entry(self)
         self.entry_value_username.place(x=250, y=170) 
-        self.entry_value_password = tk.Entry(self) # for the username entry
+        
+        self.entry_value_password = tk.Entry(self)
         self.entry_value_password.place(x=250, y=220) 
+        
         self.btn_new_game = tk.Button(self, text='Connect', command=lambda: self.process_btn('Connect'))
         self.btn_new_game.place(x=350, y=270)
         self.update()
@@ -54,48 +62,211 @@ class WindowTwo(tk.Tk):
     def process_btn(self, btn_pressed: str):
         username = self.entry_value_username.get()
         password = self.entry_value_password.get()
-        error_font = font.Font(family="Helvetica", size=7, weight='bold',slant='italic') # for the title
+        error_font = font.Font(family="Helvetica", size=7, weight='bold', slant='italic') # for the title
         
         if btn_pressed == 'Connect':
-            if username=='dodo' and password=='1234':    
+            if username == '' and password == '':
                 self.destroy()
                 window_three = Windowthree()
                 window_three.mainloop()
-
-            else :
+            else:
                 self.entry_value_username.delete(0, tk.END)
                 self.entry_value_password.delete(0, tk.END)
-                self.lbl_msg = tk.Label(self, text="Username or Password incorrect ", font=error_font, anchor='center',foreground='orange', bg='black')
+                self.lbl_msg = tk.Label(self, text="Username or Password incorrect ", font=error_font, anchor='center', foreground='orange', bg='black')
                 self.lbl_msg.place(x=235, y=245)
-                
+
+# Main menu window
 class Windowthree(tk.Tk):
     def __init__(self):
         super().__init__()
-       
+        
         title_font = font.Font(family="Helvetica", size=100, weight='bold') # for the title
-        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold') # to didplsy the number
+        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold') # to display the number
+        
         self.title('Menu')
         button_width = 20
-
+        
         self.geometry('640x480')
         self.configure(bg='blue')
-        self.lbl_msg = tk.Label(self, text="MENU", font=title_font, anchor='center',foreground='white', bg='blue')
+        
+        self.lbl_msg = tk.Label(self, text="MENU", font=title_font, anchor='center', foreground='white', bg='blue')
         self.lbl_msg.place(x=125, y=10)
-
+        
         self.btn_new_game = tk.Button(self, text='Add Expenses', command=lambda: self.process_btn('add_expenses'), width=button_width)
         self.btn_new_game.place(x=260, y=180)
-        self.btn_new_game = tk.Button(self, text='View Expenses', command=lambda: self.process_btn('view_expenses'),width=button_width)
+        
+        self.btn_new_game = tk.Button(self, text='View Expenses', command=lambda: self.process_btn('view_expenses'), width=button_width)
         self.btn_new_game.place(x=260, y=230)
-        self.btn_new_game = tk.Button(self, text='Reports', command=lambda: self.process_btn('report'),width=button_width)
+        
+        self.btn_new_game = tk.Button(self, text='Reports', command=lambda: self.process_btn('report'), width=button_width)
         self.btn_new_game.place(x=260, y=280)
-        self.btn_new_game = tk.Button(self, text='Settings', command=lambda: self.process_btn('settings'),width=button_width)
+        
+        self.btn_new_game = tk.Button(self, text='Settings', command=lambda: self.process_btn('settings'), width=button_width)
         self.btn_new_game.place(x=260, y=380)
-        self.btn_new_game = tk.Button(self, text='This Month Summary', command=lambda: self.process_btn('summary'),width=button_width)
+        
+        self.btn_new_game = tk.Button(self, text='This Month Summary', command=lambda: self.process_btn('summary'), width=button_width)
         self.btn_new_game.place(x=260, y=330)
         self.update()
 
+    def process_btn(self, btn_pressed: str):
+        if btn_pressed == 'add_expenses':
+            self.destroy()
+            window_addExp = WindowAddExp()
+            window_addExp.mainloop()
 
+# Window to add expenses
+class WindowAddExp(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        
+        title_font = font.Font(family="Helvetica", size=10, weight='bold') # for the title
+        slogan_font = font.Font(family="Comic Sans MS", size=40, weight='bold') # to display the number
+        
+        self.title('Add Expenses')
+        button_width = 20
+        self.selected_option = tk.IntVar()
+        
+        self.geometry('640x480')
+        self.configure(bg='blue')
+        
+        self.lbl_msg = tk.Label(self, text="ADD EXPENSES", font=slogan_font, anchor='center', foreground='yellow', bg='blue')
+        self.lbl_msg.place(x=120, y=10)
+        
+        self.entry_value_nameExpense = tk.Entry(self)
+        self.entry_value_nameExpense.place(x=250, y=120)
+        
+        self.entry_value_dateExpense = tk.Entry(self)
+        self.entry_value_dateExpense.place(x=250, y=170)
+        
+        self.entry_value_natureExpense = tk.Entry(self)
+        self.entry_value_natureExpense.place(x=250, y=220)
+        
+        self.entry_value_amountExpense = tk.Entry(self)
+        self.entry_value_amountExpense.place(x=250, y=270)
+        
+        # Add a label for prompt
+        self.label_nameExpense = tk.Label(self, text="Title", bg='blue', font=title_font, foreground='white', justify='right')
+        self.label_nameExpense.place(x=215, y=117)
+        
+        self.label_dateExpense = tk.Label(self, text="Date", bg='blue', font=title_font, foreground='white', justify='right')
+        self.label_dateExpense.place(x=215, y=167)
+        
+        self.label_natureExpense = tk.Label(self, text="Nature", bg='blue', font=title_font, foreground='white', justify='right')
+        self.label_natureExpense.place(x=200, y=217)
+        
+        self.label_nameExpense = tk.Label(self, text="Amount", bg='blue', font=title_font, foreground='white', justify='right')
+        self.label_nameExpense.place(x=192, y=267)
+        
+        self.label_nameExpense = tk.Label(self, text="Add Auto", bg='blue', font=title_font, foreground='white', justify='right')
+        self.label_nameExpense.place(x=183, y=320)
+        
+        self.label_nameExpense = tk.Label(self, text="Frequency", bg='blue', font=title_font, foreground='white', justify='right')
+        self.label_nameExpense.place(x=165, y=370)
+        
+        self.toggle_state = False
+        
+        # Create a save button
+        self.save_button = tk.Button(self, text='SAVE', command=self.save, width=15)
+        self.save_button.place(x=500, y=430)
+        
+        # Create a back button
+        self.save_button = tk.Button(self, text='BACK', command=self.back, width=15)
+        self.save_button.place(x=30, y=430)
+        
+        # Create a toggle button
+        self.toggle_button = tk.Button(self, text='NO', command=self.toggle)
+        self.toggle_button.place(x=250, y=320)
+        
+        # Create a menu button
+        self.menu_button = tk.Menubutton(self, text='Options', relief=tk.RAISED)
+        self.menu_button.grid()
+        
+        # Create a menu
+        self.menu = tk.Menu(self.menu_button, tearoff=0)
+        self.menu_button["menu"] = self.menu
+        self.menu_button.config(state='disabled')
+        
+        # Add options to the menu
+        self.menu.add_command(label="Weekly", command=lambda: self.show_message('Weekly'))
+        self.menu.add_command(label="Bi-weekly", command=lambda: self.show_message('Bi-weekly'))
+        self.menu.add_command(label="Monthly", command=lambda: self.show_message('Monthly'))
+        self.menu.add_command(label="Annually", command=lambda: self.show_message('Annually'))
+        
+        # Pack the menu button
+        self.menu_button.place(x=250, y=370)
 
+    def show_message(self, message):
+        self.menu_button.config(text=message)
+        
+    def back(self):
+        self.destroy()
+        back = Windowthree()
+        back.mainloop() 
+    
+    def toggle(self):
+        self.toggle_state = not self.toggle_state
+        if self.toggle_state:
+            self.toggle_button.config(text='YES', bg='green')
+            self.menu_button.config(state='active')
+        else:
+            self.toggle_button.config(text='NO', bg='red')
+            self.menu_button.config(text='Options')
+            self.menu_button.config(state='disabled')
+        return self.toggle_state
+    
+    def save(self):
+        # Check name or nature
+        name_text = self.entry_value_nameExpense.get()
+        nature_text=self.entry_value_natureExpense.get()
+        try:
+            # chech if they are empty. 
+            if not name_text or not nature_text:
+                raise ValueError
             
+        except ValueError:
+            # Show an error message
+            messagebox.showerror("Error", "Title and Nature must be filled")
+            temoin=False
+            return
+        
+        # Check date
+        date_text = self.entry_value_dateExpense.get()
+        try:
+            # Try to get time
+            valid_date = datetime.strptime(date_text, '%m-%d-%y')
+            temoin=True
+        except ValueError:
+            # Show an error message
+            messagebox.showerror("Error", "Wrong date format. Please enter in format MM-DD-YY.")
+            temoin=False
+            return
+        
+        # Check amount
+        amount_text = self.entry_value_amountExpense.get()
+        try:
+            # Try to convert to float and check if positive
+            if float(amount_text) > 0:
+                valid_amount = amount_text
+                temoin=True
+            else:
+                raise ValueError
+        except ValueError:
+            # Show an error message
+            messagebox.showerror("Error", "Only positive number")
+            temoin=False
+            return
+        
+        # Check option
+        try:
+            # check if Auto is on
+            if self.toggle_state and self.menu_button.cget('text')=='Options':
+                raise ValueError
+            
+        except ValueError:
+            # Show an error message
+            messagebox.showerror("Error", "Choose a frequency")
+            temoin=False
+            return
+
 window_one = WindowOne()
 window_one.mainloop()
