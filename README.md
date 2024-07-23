@@ -142,10 +142,8 @@ if __name__ == "__main__":
     window_one.mainloop()
 ```
 # Remaining Tasks
-•	Implement the "Add Expenses" screen.
 •	Implement the "View Expenses" screen.
 •	Implement the "Reports" screen.
 •	Implement the "Settings" screen.
 •	Implement the backend calculations.
-•	Decide on and implement the database solution, which could involve using files to store data or another approach (I am not sure yet).
-
+•	Implement the database solution (SQlite).
