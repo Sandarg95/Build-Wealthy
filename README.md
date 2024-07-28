@@ -1,4 +1,5 @@
 **Introduction**
+
 Welcome to the Expense Management Application – BUILD WEALTHY! This application helps you track and manage your expenses efficiently. You can add, view summaries of your expenses, reset your password, and navigate through user-friendly interfaces. This manual will guide you through the installation, setup, and usage of the application.
 Installation
 Prerequisites
@@ -60,11 +61,17 @@ How to Use
 5.	Click the BACK button to return to the previous window.
    
 **Troubleshooting**
-Common Issues
+
+_Common Issues_
+
 •	Error loading image: Ensure that the image file exists in the correct path and has the correct permissions.
+
 •	Database connection errors: Verify that the Expenses.db file exists in the correct directory and is accessible.
-Solutions
+
+_Solutions_
+
 •	Image Loading Issues: The image file name corresponds to the current month and is placed in the correct directory-same file as the program.
+
 •	Database Issues: Check that the database file is not corrupted and has the necessary tables created.
 
 **FAQ**
