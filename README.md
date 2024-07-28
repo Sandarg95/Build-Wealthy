@@ -1,3 +1,5 @@
+_**EXPENSE MANAGEMENT APPLICATION  – BUILD WEALTHY- USER MANUAL**_
+
 **Introduction**
 
 Welcome to the Expense Management Application – BUILD WEALTHY! This application helps you track and manage your expenses efficiently. You can add, view summaries of your expenses, reset your password, and navigate through user-friendly interfaces. This manual will guide you through the installation, setup, and usage of the application.
