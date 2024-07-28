@@ -5,6 +5,7 @@ Welcome to the Expense Management Application – BUILD WEALTHY! This applicatio
 **Installation**
 
 _Prerequisites_
+
 Before you begin, ensure you have the following installed on your system:
 •	Python 3.x
 •	Tkinter library (usually comes with Python)
@@ -12,6 +13,7 @@ Before you begin, ensure you have the following installed on your system:
 •	SQLite3 library
 
 _Getting Started_
+
 Upon running the application, you will be presented with the main window. From here, you can navigate to different sections of the application such as adding expenses, viewing expenses, summary and resetting your password.
 
 **Using the Application**
