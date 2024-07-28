@@ -1,0 +1,43 @@
+Validation Testing for Expense Management Application – Build Wealthy
+Test Data
+To fully validate the Expense Management Application, the following set of test data was used:
+1. Add Expenses:
+Title: "Groceries", Date: "2024-07-01", Nature: "Food", Amount: 150.0
+Title: "Rent", Date: "2024-07-01", Nature: "Housing", Amount: 1200.0, Auto, Yearly, Until “2030-07-02” 
+Title: "Utilities", Date: "2025-07-05", Nature: "Housing", Amount: 200.0
+Title: "Subscription", Date: "2024-07-10", Nature: "Entertainment", Amount: 15.0.
+Title: "Fuel", Date: "2024-08-15", Nature: "Transportation", Amount: 50.0
+2. View Expenses:
+View all expenses added above.
+3. Summary Window:
+Summary of expenses for July 2024.
+4. Password Reset:
+Current Password: "dodo1234", New Password: "newpass123", Confirm New Password: "newpass123"
+Current Password: "wrongpassword", New Password: "newpass123", Confirm New Password: "newpass123"
+Test Results
+1. Add Expenses:
+Result: All expenses were successfully added to the database.
+Fixes: None required.
+2. View Expenses:
+Result: All added expenses were displayed correctly in the Treeview.
+Fixes: None required.
+3. Summary Window:
+Result: The expenses, the total sum and number of expenses for July 2024 were correctly calculated and displayed.
+Fixes: None required.
+4. Password Reset:
+Valid Current Password:
+Result: Password was successfully changed.
+Fixes: None required.
+Invalid Current Password:
+Result: Error message displayed indicating the current password was incorrect.
+Fixes: None required.
+Explanation of Results
+The test data was used to verify the core functionalities of the Expense Management Application. Each test case was designed to cover different aspects of the application:
+Add Expenses: Verified that expenses can be added with valid data and stored correctly in the database. Ensured that when the ‘Add auto’ is on, the ‘frequency’ and the ‘until date’ had the right values.
+View Expenses: Ensured that all added expenses are displayed in the Treeview.
+Summary Window: Checked the correctness of the total sum and the count of expenses for the specified month.
+Password Reset: Tested the password reset functionality with both valid and invalid current passwords to ensure proper validation and error handling.
+
+Good Test Data Working
+Visit this link to view the video of the testing: 
+https://photos.app.goo.gl/Z96kZnnSwPvPsnfH9
