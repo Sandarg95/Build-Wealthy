@@ -1,19 +1,23 @@
 **Introduction**
 
 Welcome to the Expense Management Application – BUILD WEALTHY! This application helps you track and manage your expenses efficiently. You can add, view summaries of your expenses, reset your password, and navigate through user-friendly interfaces. This manual will guide you through the installation, setup, and usage of the application.
-Installation
-Prerequisites
+
+**Installation**
+
+_Prerequisites_
 Before you begin, ensure you have the following installed on your system:
 •	Python 3.x
 •	Tkinter library (usually comes with Python)
 •	Pillow library
 •	SQLite3 library
-Getting Started
+
+_Getting Started_
 Upon running the application, you will be presented with the main window. From here, you can navigate to different sections of the application such as adding expenses, viewing expenses, summary and resetting your password.
 
 **Using the Application**
 
 _Main Window_
+
 The main window serves as the central hub of the application. From here, you can access other parts of the application.
 Add Expenses
 To add an expense, follow these steps:
@@ -22,16 +26,19 @@ To add an expense, follow these steps:
 3.	Save the Expense: Click the Save button to add the expense to the database.
    
 _View Expenses_
+
 The View Expenses window allows you to view and manage your expenses. It includes the following features:
 •	Back Button: Returns to the previous window.
 •	Expense Treeview: Lists all expenses with details such as ID, Title, Date, Nature, Amount, Is Auto, and Frequency.
 •	Context Menu: Right-click on an expense to edit or delete it.
+
 How to Use
 1.	Open the View Expenses Window: From the main window, navigate to the View Expenses window.
 2.	View Expenses: The expenses will be displayed in a tree view format.
 3.	Edit or Delete an Expense: Right-click on an expense to bring up the context menu. Choose Edit to modify the expense details or Delete to remove it from the database.
    
 _Summary Window_
+
 The Summary Window displays a summary of your expenses for the current month. It includes the following features:
 •	Image Display: Shows an image related to the current month.
 •	Summary Label: Displays a summary title.
@@ -39,12 +46,14 @@ The Summary Window displays a summary of your expenses for the current month. It
 •	Total Sum Label: Shows the total sum of expenses.
 •	Number of Expenses Label: Displays the number of recorded expenses.
 •	Expense Treeview: Lists all expenses with details such as ID, Title, Date, Nature, and Amount by order (date)
+
 How to Use
 1.	The Summary Window automatically loads data for the current month upon opening.
 2.	You can view the total sum and number of expenses at the bottom of the window of the current month.
 3.	To go back to the main window, click the BACK button.
    
 _Password Reset Window_
+
 The Password Reset Window allows you to reset your password. It includes the following features:
 •	Image Display: Shows an image related to password reset.
 •	Password Reset Label: Displays the title "Reset Password".
@@ -53,6 +62,7 @@ The Password Reset Window allows you to reset your password. It includes the fol
 •	Confirm New Password Entry: Field to confirm your new password.
 •	Change Password Button: Changes your password if the conditions are met.
 •	Back Button: Returns to the previous window.
+
 How to Use
 1.	Enter your current password in the "Current Password" field.
 2.	Enter your new password in the "New Password" field.
