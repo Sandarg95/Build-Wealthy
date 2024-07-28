@@ -1,149 +1,81 @@
-# Build-Wealthy
-Academic project
-# Tkinter Multi-Window Application
+**Introduction**
+Welcome to the Expense Management Application – BUILD WEALTHY! This application helps you track and manage your expenses efficiently. You can add, view summaries of your expenses, reset your password, and navigate through user-friendly interfaces. This manual will guide you through the installation, setup, and usage of the application.
+Installation
+Prerequisites
+Before you begin, ensure you have the following installed on your system:
+•	Python 3.x
+•	Tkinter library (usually comes with Python)
+•	Pillow library
+•	SQLite3 library
+Getting Started
+Upon running the application, you will be presented with the main window. From here, you can navigate to different sections of the application such as adding expenses, viewing expenses, summary and resetting your password.
 
-This project is a simple multi-window application built using Python's Tkinter library. It provides a sequence of windows that navigate from a welcome screen to an authentication screen and finally to a menu screen with various options.
+**Using the Application**
 
-GitHub Link : https://github.com/Sandarg95/Build-Wealthy.git	
-Username: dodo
-Password: 1234
+_Main Window_
+The main window serves as the central hub of the application. From here, you can access other parts of the application.
+Add Expenses
+To add an expense, follow these steps:
+1.	Open the Add Expense Form: In the main window, you will find a form to add new expenses.
+2.	Fill in the Details: Enter the title, date, nature, and amount of the expense. If the expense is recurring, select "Add Auto," then choose the periodicity and the end date.
+3.	Save the Expense: Click the Save button to add the expense to the database.
+   
+_View Expenses_
+The View Expenses window allows you to view and manage your expenses. It includes the following features:
+•	Back Button: Returns to the previous window.
+•	Expense Treeview: Lists all expenses with details such as ID, Title, Date, Nature, Amount, Is Auto, and Frequency.
+•	Context Menu: Right-click on an expense to edit or delete it.
+How to Use
+1.	Open the View Expenses Window: From the main window, navigate to the View Expenses window.
+2.	View Expenses: The expenses will be displayed in a tree view format.
+3.	Edit or Delete an Expense: Right-click on an expense to bring up the context menu. Choose Edit to modify the expense details or Delete to remove it from the database.
+   
+_Summary Window_
+The Summary Window displays a summary of your expenses for the current month. It includes the following features:
+•	Image Display: Shows an image related to the current month.
+•	Summary Label: Displays a summary title.
+•	Back Button: Returns to the previous window.
+•	Total Sum Label: Shows the total sum of expenses.
+•	Number of Expenses Label: Displays the number of recorded expenses.
+•	Expense Treeview: Lists all expenses with details such as ID, Title, Date, Nature, and Amount by order (date)
+How to Use
+1.	The Summary Window automatically loads data for the current month upon opening.
+2.	You can view the total sum and number of expenses at the bottom of the window of the current month.
+3.	To go back to the main window, click the BACK button.
+   
+_Password Reset Window_
+The Password Reset Window allows you to reset your password. It includes the following features:
+•	Image Display: Shows an image related to password reset.
+•	Password Reset Label: Displays the title "Reset Password".
+•	Current Password Entry: Field to enter your current password.
+•	New Password Entry: Field to enter your new password.
+•	Confirm New Password Entry: Field to confirm your new password.
+•	Change Password Button: Changes your password if the conditions are met.
+•	Back Button: Returns to the previous window.
+How to Use
+1.	Enter your current password in the "Current Password" field.
+2.	Enter your new password in the "New Password" field.
+3.	Confirm your new password by entering it again in the "Confirm New Password" field.
+4.	Click the Change Password button to update your password.
+5.	Click the BACK button to return to the previous window.
+   
+**Troubleshooting**
+Common Issues
+•	Error loading image: Ensure that the image file exists in the correct path and has the correct permissions.
+•	Database connection errors: Verify that the Expenses.db file exists in the correct directory and is accessible.
+Solutions
+•	Image Loading Issues: The image file name corresponds to the current month and is placed in the correct directory-same file as the program.
+•	Database Issues: Check that the database file is not corrupted and has the necessary tables created.
 
-
-# Files
-
-- `main.py`: Contains the main application code.
-
-# Dependencies
-
-- Python 3.x
-- Tkinter (comes pre-installed with Python)
-
-# Usage
-
-1. Ensure you have Python 3 installed on your system.
-2. Save the provided code into a file named `main.py`.
-3. Run the application using the command:
-   ```bash
-   python main.py
-   ```
-
-# Code Explanation
-
-# WindowOne
-
-The first window that appears is the welcome screen.
-
-```python
-class WindowOne(tk.Tk):
-    def __init__(self):
-        super().__init__()
-        
-        custom_font = font.Font(family="Helvetica", size=70, weight='bold')
-        slogan_font = font.Font(family="Comic Sans MS", size=20, weight='bold')
-        self.title('WELCOME')
-        self.geometry('640x480')
-        self.configure(bg='black')
-        self.lbl_msg = tk.Label(self, text="WELCOME", font=custom_font, anchor='center', foreground='gold', bg='black')
-        self.lbl_msg.place(x=60, y=150)
-        self.lbl_msg = tk.Label(self, text="BUILD WEALTHY", font=slogan_font, anchor='center', foreground='white', bg='black')
-        self.lbl_msg.place(x=190, y=250)
-        self.btn_new_game = tk.Button(self, text='Continue', command=lambda: self.process_btn('Continue'))
-        self.btn_new_game.place(x=550, y=400)
-        self.update()
-
-    def process_btn(self, btn_pressed: str):
-        if btn_pressed == 'Continue':
-            self.destroy()
-            window_two = WindowTwo()
-            window_two.mainloop()
-```
-
-# WindowTwo
-
-The second window is the authentication screen where users input their username and password.
-
-```python
-class WindowTwo(tk.Tk):
-    def __init__(self):
-        super().__init__()
-        
-        id_font = font.Font(family="Helvetica", size=10, weight='bold')
-        self.title('Authentication')
-        self.geometry('640x480')
-        self.configure(bg='black')
-        self.lbl_msg = tk.Label(self, text="Username", font=id_font, anchor='center', foreground='red', bg='black')
-        self.lbl_msg.place(x=180, y=167)
-        self.lbl_msg = tk.Label(self, text="Password", font=id_font, anchor='center', foreground='red', bg='black')
-        self.lbl_msg.place(x=180, y=217)
-
-        self.entry_value_username = tk.Entry(self)
-        self.entry_value_username.place(x=250, y=170)
-        self.entry_value_password = tk.Entry(self)
-        self.entry_value_password.place(x=250, y=220)
-        self.btn_new_game = tk.Button(self, text='Connect', command=lambda: self.process_btn('Connect'))
-        self.btn_new_game.place(x=350, y=270)
-        self.update()
-
-    def process_btn(self, btn_pressed: str):
-        username = self.entry_value_username.get()
-        password = self.entry_value_password.get()
-        error_font = font.Font(family="Helvetica", size=7, weight='bold', slant='italic')
-        
-        if btn_pressed == 'Connect':
-            if username == 'dodo' and password == '1234':
-                self.destroy()
-                window_three = Windowthree()
-                window_three.mainloop()
-            else:
-                self.entry_value_username.delete(0, tk.END)
-                self.entry_value_password.delete(0, tk.END)
-                self.lbl_msg = tk.Label(self, text="Username or Password incorrect", font=error_font, anchor='center', foreground='orange', bg='black')
-                self.lbl_msg.place(x=235, y=245)
-```
-
-# Windowthree
-
-The third window is the main menu that provides different options.
-
-```python
-class Windowthree(tk.Tk):
-    def __init__(self):
-        super().__init__()
-       
-        title_font = font.Font(family="Helvetica", size=100, weight='bold')
-        self.title('Menu')
-        button_width = 20
-
-        self.geometry('640x480')
-        self.configure(bg='blue')
-        self.lbl_msg = tk.Label(self, text="MENU", font=title_font, anchor='center', foreground='white', bg='blue')
-        self.lbl_msg.place(x=125, y=10)
-
-        self.btn_new_game = tk.Button(self, text='Add Expenses', command=lambda: self.process_btn('add_expenses'), width=button_width)
-        self.btn_new_game.place(x=260, y=180)
-        self.btn_new_game = tk.Button(self, text='View Expenses', command=lambda: self.process_btn('view_expenses'), width=button_width)
-        self.btn_new_game.place(x=260, y=230)
-        self.btn_new_game = tk.Button(self, text='Reports', command=lambda: self.process_btn('report'), width=button_width)
-        self.btn_new_game.place(x=260, y=280)
-        self.btn_new_game = tk.Button(self, text='Settings', command=lambda: self.process_btn('settings'), width=button_width)
-        self.btn_new_game.place(x=260, y=380)
-        self.btn_new_game = tk.Button(self, text='This Month Summary', command=lambda: self.process_btn('summary'), width=button_width)
-        self.btn_new_game.place(x=260, y=330)
-        self.update()
-```
-
-# Main Function
-
-The application starts by creating an instance of `WindowOne` and starting the main loop.
-
-```python
-if __name__ == "__main__":
-    window_one = WindowOne()
-    window_one.mainloop()
-```
-# Remaining Tasks
-•	Implement the "View Expenses" screen.
-•	Implement the "Reports" screen.
-•	Implement the "Settings" screen.
-•	Implement the backend calculations.
-•	Implement the database solution (SQlite).
+**FAQ**
+1.	How do I add an expense?
+o	You can add an expense by entering the details in the main window and saving them to the database.
+2.	What if I forget my password?
+o	The first password is dodo1234. You can reset your password from the Password Reset Window.
+3.	Can I change the default image?
+o	Yes, you can replace the image files with your own. Ensure the file names correspond to the months (e.g., ‘1.png’ for January).
+Contact Information
+For further assistance, you can reach out to our support team at:
+•	Email: sandarg95@gmail.com
+•	Phone: (317) 734-2233
+Thank you for using the Expense Management Application- BUILD WEALTHY!
